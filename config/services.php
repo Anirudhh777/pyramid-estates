@@ -25,8 +25,9 @@ return [
     ],
 
     'ses' => [
-        'key' => 'AKIAJKH3WXAXEQZEZ5MA',
-        'secret' => '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',
+        'username' => 'ses-smtp-user.20170414-185859', // Not used
+        'key' => 'AKIAZLHC63D6E7VQUJPY',
+        'secret' => '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',
         'region' => 'us-east-1',
     ],
 

@@ -13,7 +13,7 @@
 	                </span>
 	                <div class="progress-value">
 	                    <div>
-	                        <span class="homecircle">Register your Interest</span>
+	                        <span class="homecircle">Tell us what you want</span>
 	                     </div>
 	                </div>
 	            </div>
@@ -28,7 +28,7 @@
 	                </span>
 	                <div class="progress-value">
 	                    <div>
-	                        <span class="homecircle">Give us upto 24 Hours</span>
+	                        <span class="homecircle1">Give us 24 hours</span>
 	                    </div>
 	                </div>
 	            </div>
@@ -43,7 +43,7 @@
                 </span>
                 <div class="progress-value">
                     <div>
-                        <span class="homecircle">Recieve Custom Results</span>
+                        <span class="homecircle2">Get personalized properties</span>
                     </div>
                 </div>
             </div>

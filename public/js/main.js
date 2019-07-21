@@ -72,10 +72,10 @@ $( document ).ready(function() {
       for(i=0;i<2;i++){
         if(vals[i] > 10000000){
            amount =  vals[i] / 10000000;
-           addon = "cr";
+           if (Math.ceil(amount) == 20) {addon = "cr +";}else{addon = "cr";}
          }else if(vals[i] < 10000000 && vals[i] >= 100000){
            amount =  vals[i] / 100000;
-           addon = "lakh";
+           if (Math.ceil(amount) == 4) {addon = "lakh +";}else{addon = "lakh";}
          }else{
           amount =  vals[i] / 1000;
            addon = "thousand";

@@ -20,7 +20,7 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
 
 
 .header{
-	background-color: #F4F3F4;
+	background-color: #F5F5F5;
 	height: 108px;
 	position: relative;
 	padding: 8px 0px;
@@ -52,7 +52,7 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
     text-transform: uppercase;
       font-weight: 500;
     letter-spacing: 2px;
-    color: #53777A;
+    color: #212121;
 }
 
 .header .menu-items li a {
@@ -64,7 +64,7 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
 
 .banner{
 	padding: 50px 20px;
-	background: url(../assets/images/background.jpg) no-repeat 30%;
+	background: url(../assets/images/background.jpg) no-repeat;
     height: 100%;
     background-size: cover; 
 }
@@ -76,19 +76,6 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
   background-size: cover; 
 }
 
-.homecircle{
-    position: absolute;
-    text-align: center;
-    display: block;
-    color: #53777A;
-    z-index: 2;
-    left: 48px;
-    bottom: 58px;
-    line-height: 25px;
-    width: 50%;
-    font-size: 20px;
-    font-weight: 200;
-}
 
 .startbtn{
 	    padding: 12px 40px;
@@ -144,7 +131,7 @@ textarea.form-control{
 
 .forms label{
     font-size: 15px;
-    color: #53777A !important;
+    color: #212121 !important;
 }
 
 .forms .custom-form{
@@ -369,7 +356,7 @@ textarea.form-control{
   position: absolute;
   top: 0;
   left: 0;
-  background: #d8d8d8;
+  background: #E6E6E6 !important;
 }
 .progress > span {
   width: 50%;
@@ -425,18 +412,35 @@ textarea.form-control{
 .progress .progress-value div {
   margin-top: 10px;
 }
-.progress .progress-value span {
+.progress .progress-value span{
   position: absolute;
     text-align: center;
     display: block;
     color: #D2AF3C;
     z-index: 2;
-    left: 48px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.progress .progress-value .homecircle {
+   left: 48px;
     bottom: 58px;
     line-height: 25px;
     width: 50%;
-    font-size: 20px;
-    font-weight: 600;
+}
+
+.progress .progress-value .homecircle1 {
+    left: 48px;
+    bottom: 76px;
+    line-height: 25px;
+    width: 50%;
+}
+
+.progress .progress-value .homecircle2 {
+       left: 38px;
+    bottom: 68px;
+    line-height: 25px;
+    width: 60%;
 }
 /* This for loop creates the    necessary css animation names 
  Due to the split circle of progress-left and progress right, we must use the animations on each side. 

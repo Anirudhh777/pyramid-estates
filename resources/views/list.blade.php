@@ -163,7 +163,7 @@
 </div>
 <div class="banner2">
 	<div class="container text-center">
-		<h1>If you want to search for property with us</h1>
+		<h1>To post your property requirements</h1>
 		<a href="{{ secure_url('/') }}" class="startbtn">Click Here</a>
 	</div>
 </div>

@@ -2,7 +2,7 @@
 @section('front-page')
 <div class="thank-you">
 	<div class="container">
-		<h1>Thank you for your submission, we will get in touch with you shortly. </h1>
+		<h1>Thank you for your enquiry. We'll get in touch with you shortly with your personalized properties. </h1>
 	</div>
 </div>
 <div class="banner2">

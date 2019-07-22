@@ -13,12 +13,13 @@ use Socialite;
 use Session;
 use URL;
 use App\User;
+use View;
 
 class AdminController extends Controller
 {
     protected function login(Request $data)
     {
-    	if (Auth::attempt(['email' => $data->email, 'password' => $data->password, 'is_admin' => 1])) {
+    	if (Auth::attempt(['email' => $data->email, 'password' => $data->password])) {
             $user = User::where('email', $data->email)->first();
             Auth::login($user);
             return redirect()->to('/admin/dashboard');
@@ -29,7 +30,7 @@ class AdminController extends Controller
 
     protected function register(Request $data)
     {
-        User::insert(['name' => $data->name, 'email' => $data->email, 'password' => bcrypt($data->password), 'source' => 'admin', 'is_admin' => true]);
+        User::insert(['name' => $data->name, 'email' => $data->email, 'password' => bcrypt($data->password)]);
         return redirect('/admin');
     }
 
@@ -38,5 +39,15 @@ class AdminController extends Controller
     	Session::flush();
     	Auth::logout();
     	return redirect('/');
+    }
+
+    protected function fetchbuyers(){
+        $data = DB::table('buyers')->get();
+        return view::make('backend.view')->with('data', $data)->with('type', 'buyers');
+    }
+
+    protected function fetchsellers(){
+        $data = DB::table('sellers')->get();
+        return view::make('backend.view')->with('data', $data)->with('type', 'sellers');
     }
 }

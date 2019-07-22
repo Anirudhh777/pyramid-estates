@@ -20,7 +20,7 @@
 				<form role="form" method="POST" action="{{ secure_url('/admin/register') }}">
 			    	{{ csrf_field() }}
 			    	<input type="text" class="fadeIn second" name="name" placeholder="name" required="">
-			     	<input type="email" class="fadeIn second" name="email" placeholder="login" required="">
+			     	<input type="email" class="fadeIn second" name="email" placeholder="email" required="">
 			      	<input type="password" class="fadeIn third" name="password" placeholder="password" required="">
 			      	<input type="submit" class="fadeIn fourth" value="Register">
 			    </form>

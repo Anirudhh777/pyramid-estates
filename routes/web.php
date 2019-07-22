@@ -23,6 +23,13 @@ Route::get('/thank-you', function () {
     return view('thank-you');
 })->name('thank-you');
 
+Route::get('/fail', function () {
+    return view('fail');
+})->name('fail');
+
+
+Route::post('/buyer_validate_phone', "FormsController@buyer_verify");
+Route::post('/seller_validate_phone', "FormsController@seller_verify");
 Route::post('/buyer/submit', 'FormsController@buyer_register');
 Route::post('/seller/submit', 'FormsController@seller_register');
 
@@ -39,4 +46,12 @@ Route::get('/admin/password/reset', function () {
 })->name('/admin/password/reset');
 
 Route::post('/admin/login', 'AdminController@login');
+Route::get('/admin/logout', 'AdminController@logout');
 Route::post('/admin/register', 'AdminController@register');
+
+Route::get('/admin/dashboard', function () {
+    return view('backend.dashboard');
+})->name('dashboard')->middleware('auth');
+
+Route::get('/admin/dashboard/buyers', 'AdminController@fetchbuyers')->middleware('auth');
+Route::get('/admin/dashboard/sellers', 'AdminController@fetchsellers')->middleware('auth');

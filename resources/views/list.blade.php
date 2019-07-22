@@ -55,7 +55,7 @@
 	<div class="container">
 		<div class="tab-content clearfix">
 			<div class="tab-pane active" id="buyertab">
-	          	<form role="form" method="POST" action="{{ secure_url('/buyer/submit') }}" class="buyerform regform">
+	          	<form role="form" method="POST" action="{{ secure_url('/seller/submit') }}" class="buyerform regform" id="sellform">
 	          		{{ csrf_field() }}
 	          		<div class="details">
 	          			<p>Tell us about yourself</p>
@@ -88,7 +88,8 @@
 									<input type="hidden" name="res_comm" class="res_comm">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-	          					<select class="selectpicker form-control res-opts" multiple name="prop_type">
+	          					<input type="hidden" name="prop_type" value="" class="prop_type_val">
+	          					<select class="selectpicker form-control res-opts prop_type_opts" multiple>
 								    <option value="Appartment">Apartment</option>
 								    <option value="FarmHouse">Farm House</option>
 								    <option value="Villa">Villa</option>
@@ -96,7 +97,7 @@
 								    <option value="Studio">Studio</option>
 								    <option value="Other">Other</option>
 								</select>
-								<select class="selectpicker form-control com-opts com-hide" multiple name="prop_type" disabled="">
+								<select class="selectpicker form-control com-opts com-hide prop_type_opts" multiple disabled="">
 								    <option value="AgriLand">Agricultural Land</option>
 								    <option value="CoWorking">Co Working Space</option>
 								    <option value="Land">Land/Plot</option>
@@ -114,7 +115,6 @@
 									<input type="button" name="bedrooms" value="4+" class="select-btn-area-br">
 									<input type="hidden" name="bedrooms_vals" value="" class="selectarea-br">
 								</div>
-								
 	          				</div>
 	          			</div>
 	          		</div>
@@ -122,11 +122,17 @@
 	          			<div class="row">
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Location*</label>
-	          					<select class="selectpicker form-control locpick" data-live-search="true" name="location" multiple>
+	          					<!-- <select class="selectpicker form-control locpick" data-live-search="true" name="location" multiple>
 	          						<option data-tokens="Andheri">Andheri</option>
 									  <option data-tokens="Malad">Malad</option>
 									  <option data-tokens="Churchgate">Churchgate</option>
-	          					</select>
+	          					</select> -->
+	          					<input type="hidden" name="location" value="" class="glocval">
+	          					<input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
+	          					<div class="loc-list">
+	          						
+
+	          					</div>
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Area in sq.ft*</label>
@@ -144,7 +150,7 @@
 	          					<label>Budget</label>
 	          					<div id="slider-range-buy"></div>
 	          					<div id="slider-range-rent"></div>
-	          					<input type="text" id="amount" name="budget" readonly class="budget" value="Select Range">
+	          					<input type="text" id="amount" name="budget" readonly class="budget" value="">
 								<!-- <p class="budget"><span id="demo"></span></p> -->
 	          				</div>
 	          				<div class="col-lg-12 comments">
@@ -154,6 +160,12 @@
 	          			</div>
 	          		</div>
 	          		<div class="text-center">
+	          			<div class="g-recaptcha"
+					          data-sitekey="6Lcqxa4UAAAAAF7yIZYJQYf0zrbpUsW-59Ssn6Jb"
+					          data-callback="onSubmitSell"
+					          data-size="invisible">
+					    </div>
+	          			<input type="hidden" name="captcha" value="" id="gcaptcha">
 	          			<input type="submit" name="Submit" class="select-btn submit-btn">
 	          		</div>
 	          	</form>

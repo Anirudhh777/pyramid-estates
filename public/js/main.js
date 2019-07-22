@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	var values = [];
 	var area = [];
   var bedrooms = [];
+  var places = [];
 
   $(".select-btn").click(function(){
     if($(this).attr('type') == "button"){
@@ -34,12 +35,12 @@ $( document ).ready(function() {
     }
   });
 
-  $(".res-opts").change(function(e){
+  $(".prop_type_opts").change(function(e){
+      prop_types = $(this).val();
+      $('.prop_type_val').val(prop_types.toString());
       if($(this).val().includes("Appartment")){
-         e.stopImmediatePropagation();
         $(".opts-bedroom").show();
       }else{
-        e.stopImmediatePropagation();
         $(".opts-bedroom").hide();
       }
   });
@@ -135,6 +136,92 @@ $( "#slider-range-rent" ).slider({
     }, 2000);
   })
 
+  var input = document.getElementById('pac-input');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.setComponentRestrictions(
+  {'country': ['in']});
+   autocomplete.setFields(
+  ['name', 'address_components']);
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+    if(!places.includes(place.name)){
+      $('.loc-list').append('<input type="button" value="'+place.name+'" class="select-btn-loc">');
+      places.push(place.name);
+    }
+    $(".glocval").val(places.toString());
+     $(".gloc").val("");
+  });
 
+  $(document).on('click', '.select-btn-loc', function(){ 
+    places.splice(places.indexOf($(this).val()));
+    $(".glocval").val(places.toString());
+    $(this).remove();
+  })
+
+  $("#buyform").validate({
+    ignore: [],
+    rules: {
+      name: {
+        required: true
+      },
+      phone: {
+          required: true,
+          minlength: 10,
+          maxlength: 10,
+          number: true,
+          remote: {
+              url: "/buyer_validate_phone",
+              type: "post"
+            }
+        },
+      },
+      messages:
+        {
+              name: {
+                required: "Please enter your name"
+              },
+              phone: {
+                 required: "Please enter your number",
+                remote: "This number has already been registered",
+                number: "Only numbers allowed"
+              }     
+          },
+      submitHandler: function(form) {
+          grecaptcha.execute();
+      }
+  });
+
+  $("#sellform").validate({
+    ignore: [],
+    rules: {
+      name: {
+        required: true
+      },
+      phone: {
+          required: true,
+          minlength: 10,
+          maxlength: 10,
+          number: true,
+          remote: {
+              url: "/seller_validate_phone",
+              type: "post"
+            }
+        },
+      },
+      messages:
+        {
+              name: {
+                required: "Please enter your name"
+              },
+              phone: {
+                 required: "Please enter your number",
+                remote: "This number has already been registered",
+                number: "Only numbers allowed"
+              }     
+          },
+      submitHandler: function(form) {
+          grecaptcha.execute();
+      }
+  });
 
 });

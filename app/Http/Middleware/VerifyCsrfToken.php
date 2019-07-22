@@ -19,6 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        '/buyer_validate_phone',
+        '/seller_validate_phone'
     ];
 }

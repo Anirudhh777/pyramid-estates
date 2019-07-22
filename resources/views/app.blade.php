@@ -18,7 +18,8 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
          <script src="{{ secure_asset('js/jquery-ui-touch-.min.js') }}"></script>
-
+         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFrew1wrQAq-VDAv-y-Qbx-WKUPlfIYnA&libraries=places"></script>
+         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body>
         <div class="header">
@@ -60,4 +61,19 @@
             </div>
         </div>
     </body>
+    <footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
+        <script>
+            var onSubmit = function(response) {
+                 document.getElementById("gcaptcha").value = response;
+                 document.getElementById("buyform").submit();
+               }
+
+               var onSubmitSell = function(response) {
+                 document.getElementById("gcaptcha").value = response;
+                 document.getElementById("sellform").submit();
+               }
+        </script>
+    </footer>
 </html>

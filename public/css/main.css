@@ -611,8 +611,9 @@ textarea.form-control{
 form label.error {
     font-size: 15px;
     color: #bd0000 !important;
-    text-align: center;
+    text-align: left;
 }
+
 
 @media screen and (max-width: 992px){
   .res_comm_sec .select-btn{

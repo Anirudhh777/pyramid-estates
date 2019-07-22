@@ -174,6 +174,11 @@ $( "#slider-range-rent" ).slider({
               type: "post"
             }
         },
+        bedrooms_vals: {
+            required: function(element){
+              return $('.prop_type_val').val().includes("Appartment");
+          }
+        },
       },
       messages:
         {

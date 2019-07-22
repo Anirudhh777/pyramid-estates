@@ -64,7 +64,7 @@ class FormsController extends Controller
     }
 
     protected function captcha_verify($token){
-        $request = $this->client->request('POST', 'https://www.google.com/recaptcha/api/siteverify?secret=6Lcqxa4UAAAAAG8b95j859uoi3fHX5BjvsiYIBf9&response='.$token);
+        $request = $this->client->request('POST', 'https://www.google.com/recaptcha/api/siteverify?secret='.env('GCAPTCHA_SECRET').'&response='.$token);
         $callback = $request->getBody()->getContents();
         $data = (array) json_decode($callback);
         return $data['success'];

@@ -25,9 +25,8 @@ return [
     ],
 
     'ses' => [
-        'username' => 'ses-smtp-user.20170414-185859', // Not used
-        'key' => 'AKIAZLHC63D6E7VQUJPY',
-        'secret' => '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',
+        'key' => env('AWS_SES_KEY'),
+        'secret' => env('AWS_SES_SECRET'),
         'region' => 'us-east-1',
     ],
 

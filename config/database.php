@@ -49,11 +49,11 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST') ?: (isset($_SERVER['RDS_HOSTNAME']) ? $_SERVER['RDS_HOSTNAME'] : 'aarua98vjdb7rc.cl4sea5cfxup.us-east-1.rds.amazonaws.com'),
-            'database'  => env('DB_DATABASE') ?: (isset($_SERVER['RDS_DB_NAME']) ? $_SERVER['RDS_DB_NAME'] : 'ebdb'),
-            'username'  => env('DB_USERNAME') ?: (isset($_SERVER['RDS_USERNAME']) ? $_SERVER['RDS_USERNAME'] : 'pyramidestates'),
-            'password'  => env('DB_PASSWORD') ?: (isset($_SERVER['RDS_PASSWORD']) ? $_SERVER['RDS_PASSWORD'] : 'social123'),
-            'port'      => env('DB_PORT') ?: (isset($_SERVER['RDS_PORT']) ? $_SERVER['RDS_PORT'] : 3306),
+            'host'      => env('DB_HOST'),
+            'database'  => env('DB_DATABASE'),
+            'username'  => env('DB_USERNAME'),
+            'password'  => env('DB_PASSWORD'),
+            'port'      => env('DB_PORT'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

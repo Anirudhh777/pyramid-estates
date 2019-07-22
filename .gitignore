@@ -4,8 +4,11 @@
 /storage/*.key
 /vendor
 .env
+.env.pyramidestates
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.DS_Store
+Archive.zip

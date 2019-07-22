@@ -113,7 +113,7 @@
 									<input type="button" name="bedrooms" value="3" class="select-btn-area-br">
 									<input type="button" name="bedrooms" value="4" class="select-btn-area-br">
 									<input type="button" name="bedrooms" value="4+" class="select-btn-area-br">
-									<input type="hidden" name="bedrooms_vals" value="" class="selectarea-br">
+									<input type="hidden" name="bedrooms_vals" class="selectarea-br">
 								</div>
 	          				</div>
 	          			</div>

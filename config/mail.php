@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => 'AKIAZLHC63D6E7VQUJPY',
+    'username' => env('AWS_SES_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => '+YUpPFtzI0p+iqzF82q6IyCwZWc2fChNICU+PbIq',
+    'password' => env('AWS_SES_SECRET'),
 
     /*
     |--------------------------------------------------------------------------

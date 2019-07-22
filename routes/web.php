@@ -55,3 +55,5 @@ Route::get('/admin/dashboard', function () {
 
 Route::get('/admin/dashboard/buyers', 'AdminController@fetchbuyers')->middleware('auth');
 Route::get('/admin/dashboard/sellers', 'AdminController@fetchsellers')->middleware('auth');
+
+// Route::get('/images_destroy', 'FormsController@file_delete');

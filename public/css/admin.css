@@ -344,3 +344,12 @@
       display: inline-block !important;
 
 }
+
+.admin-panel td a{
+  display: initial;
+    padding: initial;
+    width: initial;
+    border: initial;
+    margin: initial;
+    margin-bottom: initial;
+}

@@ -55,7 +55,7 @@
 	<div class="container">
 		<div class="tab-content clearfix">
 			<div class="tab-pane active" id="buyertab">
-	          	<form role="form" method="POST" action="{{ secure_url('/seller/submit') }}" class="buyerform regform" id="sellform">
+	          	<form role="form" method="POST" action="{{ secure_url('/seller/submit') }}" class="buyerform regform" id="sellform" enctype="multipart/form-data">
 	          		{{ csrf_field() }}
 	          		<div class="details">
 	          			<p>Tell us about yourself</p>
@@ -153,6 +153,26 @@
 	          					<input type="text" id="amount" name="budget" readonly class="budget" value="">
 								<!-- <p class="budget"><span id="demo"></span></p> -->
 	          				</div>
+	          			</div>
+	          			<div class="image-upload text-center">
+	          				<!-- <input type="file" name="image" id="image" multiple="" class="image-btn select-btn btn-active"> -->
+		          			<button class="image-btn select-btn btn-active" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							    Upload Images <i class="fa fa-arrow-down"></i>
+							 </button>
+							 <div class="collapse" id="collapseExample">
+							 	<input type="hidden" name="imagelinks" value="" class="imagelinks">
+							  	<div class="row">
+									  <div class="col-sm-2 imgUp">
+									    <div class="imagePreview"></div>
+											<label class="btn btn-primary image-label">
+												Upload<input type="file" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;" name="imagelinks">
+											</label>
+									  </div>
+									  <i class="fa fa-plus imgAdd"></i>
+								</div>
+							</div>
+		          		</div>
+	          			<div class="row">
 	          				<div class="col-lg-12 comments">
 	          					<label>Additional Information</label>
 	          					<textarea class="form-control" name="additional"></textarea>

@@ -23,6 +23,9 @@
 			        <th>Area</th>
 			        <th>Budget</th>
 			        <th>Additional</th>
+			        @if($type == 'sellers')
+			        	 <th>Images</th>
+			       	@endif
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -37,8 +40,18 @@
 							<td>{{ $user->bedrooms }}</td>
 							<td>{{ $user->locations }}</td>
 							<td>{{ $user->area }}</td>
-							<td>{{ $user->budget }}</td>
-							<td>{{ $user->additional }}</td>
+							<td>{{ $user->budget }}</td> 
+							<td>{{ $user->additional }}</td> 
+							@if($type == 'sellers')
+								<td>
+									<?php 
+									foreach (explode(",",$user->images) as $image) {
+										echo '<a href='.$image.' target="_blank">'.$image.'</a><br>';
+
+									}
+									?>
+				        	 	</td>
+				       		@endif
 			    		</tr>
 			    	@endforeach
 			    </tbody>

@@ -3,6 +3,7 @@ $( document ).ready(function() {
 	var area = [];
   var bedrooms = [];
   var places = [];
+  var images = [];
 
   $(".select-btn").click(function(){
     if($(this).attr('type') == "button"){
@@ -17,7 +18,6 @@ $( document ).ready(function() {
            $("#slider-range-buy").show();
           $("#slider-range-rent").hide();
         }
-        $( "#amount" ).val("Select Range");
       }else if(name == "res_comm_btn"){
       	$(".res_comm").val($(this).val());
       	if(values[name] == "residential"){
@@ -136,27 +136,30 @@ $( "#slider-range-rent" ).slider({
     }, 2000);
   })
 
-  var input = document.getElementById('pac-input');
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.setComponentRestrictions(
-  {'country': ['in']});
-   autocomplete.setFields(
-  ['name', 'address_components']);
-  autocomplete.addListener('place_changed', function() {
-    var place = autocomplete.getPlace();
-    if(!places.includes(place.name)){
-      $('.loc-list').append('<input type="button" value="'+place.name+'" class="select-btn-loc">');
-      places.push(place.name);
-    }
-    $(".glocval").val(places.toString());
-     $(".gloc").val("");
-  });
+  if(window.location.pathname == '/' || window.location.pathname == '/list')
+  {
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.setComponentRestrictions(
+    {'country': ['in']});
+     autocomplete.setFields(
+    ['name', 'address_components']);
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      if(!places.includes(place.name)){
+        $('.loc-list').append('<input type="button" value="'+place.name+'" class="select-btn-loc">');
+        places.push(place.name);
+      }
+      $(".glocval").val(places.toString());
+       $(".gloc").val("");
+    });
+  }
 
-  $(document).on('click', '.select-btn-loc', function(){ 
-    places.splice(places.indexOf($(this).val()));
-    $(".glocval").val(places.toString());
-    $(this).remove();
-  })
+    $(document).on('click', '.select-btn-loc', function(){ 
+      places.splice(places.indexOf($(this).val()));
+      $(".glocval").val(places.toString());
+      $(this).remove();
+    })
 
   $("#buyform").validate({
     ignore: [],
@@ -228,5 +231,37 @@ $( "#slider-range-rent" ).slider({
           grecaptcha.execute();
       }
   });
+
+  $(".imgAdd").click(function(){
+      if($(".image-label").length < 7){
+        $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary image-label">Upload<input type="file" class="uploadFile img" style="width:0px;height:0px;overflow:hidden;" name="imagelinks' + $(".image-label").length +'"></label><i class="fa fa-times del"></i></div>');
+        if($(".image-label").length == 6){ $('.imgAdd').hide(); }
+      }
+    });
+
+    $(document).on("click", "i.del" , function() {
+    	console.log($(this).val());
+      $(this).parent().remove();
+    });
+
+    $(function() {
+        $(document).on("change",".uploadFile", function()
+        {
+            var uploadFile = $(this);
+            var files = !!this.files ? this.files : [];
+            if (!files.length || !window.FileReader) return; 
+     
+            if (/^image/.test( files[0].type)){ // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+     
+                reader.onloadend = function(){ // set image data as background of div
+                   
+                 uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+this.result+")");
+                }
+            }
+          
+        });
+    });
 
 });

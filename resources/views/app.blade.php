@@ -32,7 +32,7 @@
                 <ul class="menu-items">
                     <a href="{{ secure_url('/') }}" class="nav-home"><li>Home</li></a>
                     <a href="{{ secure_url('/about') }}"><li>About Pyramid</li></a>
-                    <a href="#"><li>How it Works</li></a>
+                    <!-- <a href="#"><li>How it Works</li></a> -->
                     <a href="#" class="nav-contact"><li>Contact</li></a>
                 </ul>
                 <div id="nav-icon3">
@@ -48,8 +48,8 @@
             <div class="container text-center">
                 <ul>
                    <a href="{{ secure_url('/') }}" class="nav-home"><li>Home</li></a>
-                    <a href="#" class="nav-about"><li>About</li></a>
-                    <a href="#"><li>How it Works</li></a>
+                   <a href="{{ secure_url('/about') }}"><li>About Pyramid</li></a>
+                    <!-- <a href="#"><li>How it Works</li></a> -->
                     <a href="#" class="nav-contact"><li>Contact</li></a>               
                  </ul>
             </div>
@@ -57,7 +57,7 @@
         @yield('front-page')
         <div class="footer">
             <div class="container text-center">
-                <h1>footer links</h1>
+                <h1>Pyramid Estate Contact Details</h1>
             </div>
         </div>
     </body>

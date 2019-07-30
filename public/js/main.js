@@ -148,6 +148,13 @@ $( "#slider-range-rent" ).slider({
   $(".nav-contact").click(function(e) {
     e.preventDefault();
     $('html, body').animate({
+        scrollTop: $(".footer").offset().top
+    }, 1000);
+  })
+
+  $(".nav-form").click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({
         scrollTop: $(".forms").offset().top
     }, 1000);
   })

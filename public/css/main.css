@@ -894,6 +894,7 @@ form label.error {
 
   .banner .mobile{
     display: block;
+    margin-bottom: 50px;
   }
 
   .banner .mobile p{

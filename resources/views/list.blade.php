@@ -1,56 +1,6 @@
-@extends('app')
-@section('front-page')
-<div class="banner">
-	<div class="container text-center">
-		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-				<div class="progress" data-percentage="40">
-	                <span class="progress-left">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <span class="progress-right">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <div class="progress-value">
-	                    <div>
-	                        <span class="homecircle1">List Your Property</span>
-	                     </div>
-	                </div>
-	            </div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">	
-				<div class="progress" data-percentage="70">
-	                <span class="progress-left">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <span class="progress-right">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <div class="progress-value">
-	                    <div>
-	                        <span class="homecircle1">We'll Market It</span>
-	                    </div>
-	                </div>
-	            </div>
+@extends('banner')
+@section('forms')
 
-			</div>
-			<div class="progress" data-percentage="100">
-                <span class="progress-left">
-                    <span class="progress-bar"></span>
-                </span>
-                <span class="progress-right">
-                    <span class="progress-bar"></span>
-                </span>
-                <div class="progress-value">
-                    <div>
-                        <span class="homecircle1">Get Enquiries</span>
-                    </div>
-                </div>
-            </div>
-		</div>
-		<a href="#" class="startbtn nav-contact">Get Started</a>
-	</div>
-</div>
 <div class="forms">
 	<div class="container">
 		<div class="tab-content clearfix">

@@ -423,8 +423,10 @@ textarea.form-control{
     display: block;
     color: #D2AF3C;
     z-index: 2;
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
     font-weight: 600;
+    letter-spacing: 0.7px;
 }
 
 .progress .progress-value .homecircle {
@@ -786,7 +788,7 @@ form label.error {
     position: absolute;
     height: 3px;
     width: 100%;
-    background: #060E59;
+    background: black;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -846,6 +848,10 @@ form label.error {
 
   .header-responsive{
     padding: 30px 10px;
+  }
+
+  .header-responsive ul {
+    padding: 0px;
   }
 
   .header-responsive ul li{
@@ -940,5 +946,9 @@ form label.error {
   .nav-tabs > li, .nav-pills > li{
     height: 50px;
     display: block;
+  }
+
+  .banner .mobile p {
+    font-size: 15px;
   }
 }

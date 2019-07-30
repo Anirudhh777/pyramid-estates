@@ -69,6 +69,11 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
     background-size: cover; 
 }
 
+.about{
+  padding: 50px 20px;
+  height: 100%;
+}
+
 .banner2{
   padding: 50px 20px;
   background: url(../assets/images/keys.jpg) no-repeat 50% top;
@@ -201,7 +206,7 @@ textarea.form-control{
     margin-bottom: 5px;
 }
 
-.btn-active-area{
+.btn-active-area, .btn-active-area-br{
     background:  #D2AF3C;
     color: #fff !important;
 }
@@ -274,9 +279,9 @@ textarea.form-control{
   display: none;
 }
 
-.opts-bedroom{
+/*.opts-bedroom{
   display: none;
-}
+}*/
 
 .ui-widget-header{
   background: #D2AF3C !important;
@@ -678,6 +683,67 @@ form label.error {
     font-family: 'Lato', sans-serif;
 }
 
+.c_budget{
+    font-size: 14px !important;
+     font-weight: initial !important; 
+    margin-bottom: 7px;
+    margin-top: 6px;
+}
+
+.banner .mobile{
+    display: none;
+}
+
+.team-member {
+    overflow: hidden;
+}
+
+.team-member .member-photo {
+    float: left;
+    margin-right: 20px;
+}
+
+.team-member .member-content {
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.team-member .member-name {
+    font-size: 20px;
+    color: #D2AF3C;
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.team-member .member-position {
+    color: #D2AF3C;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.team-member .member-quotes {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #b2b2b2;
+}
+
+.team-member .member-quotes p {
+    margin-bottom: 0;
+    color: #000000;
+    letter-spacing: 1px;
+    line-height: 24px;
+}
+
+.about img{
+      border: 0;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+
 @media screen and (max-width: 992px){
   .res_comm_sec .select-btn{
     width: 100%;
@@ -820,6 +886,34 @@ form label.error {
 
   .p100{
     margin-bottom: 40px;
+  }
+
+  .banner .desktop{
+    display: none;
+  }
+
+  .banner .mobile{
+    display: block;
+  }
+
+  .banner .mobile p{
+    background-color: rgba(210, 175, 60, 0.65);
+    width: 90%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+
+  .team-member {
+      margin-bottom: 30px;
+  }
+
+  .team-member .member-photo {
+      width: 80px;
   }
 }
 

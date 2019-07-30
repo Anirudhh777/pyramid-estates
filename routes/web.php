@@ -19,6 +19,11 @@ Route::get('/list', function () {
     return view('list');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+
 Route::get('/thank-you', function () {
     return view('thank-you');
 })->name('thank-you');

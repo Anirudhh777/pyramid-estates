@@ -13,7 +13,7 @@
 	                </span>
 	                <div class="progress-value">
 	                    <div>
-	                        <span class="homecircle">Register your Interest</span>
+	                        <span class="homecircle1">List Your Property</span>
 	                     </div>
 	                </div>
 	            </div>
@@ -28,7 +28,7 @@
 	                </span>
 	                <div class="progress-value">
 	                    <div>
-	                        <span class="homecircle">Give us upto 24 Hours</span>
+	                        <span class="homecircle1">We'll Market It</span>
 	                    </div>
 	                </div>
 	            </div>
@@ -43,7 +43,7 @@
                 </span>
                 <div class="progress-value">
                     <div>
-                        <span class="homecircle">Recieve Custom Results</span>
+                        <span class="homecircle1">Get Enquiries</span>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
 	          			</div>
 	          		</div>
 	          		<div class="requirement text-center">
-	          			<p>Tell us what you need</p>
+	          			<p>Tell us about your property</p>
 	          			<div class="row">
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<input type="button" name="user_type_btn" value="Sell" class="select-btn">
@@ -89,22 +89,26 @@
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<input type="hidden" name="prop_type" value="" class="prop_type_val">
-	          					<select class="selectpicker form-control res-opts prop_type_opts" multiple>
-								    <option value="Appartment">Apartment</option>
-								    <option value="FarmHouse">Farm House</option>
-								    <option value="Villa">Villa</option>
-								    <option value="ServiceApt">Service Appartment</option>
-								    <option value="Studio">Studio</option>
+	          					<select class="selectpicker form-control res-opts prop_type_opts">
+								    <option value="Apartment">Apartment</option>
+								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
+								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
+								    <option value="Villa/Bungalow">Villa/Bungalow</option>
+								    <option value="Service Apartment">Service Apartment</option>
+								    <option value="Farmhouse">Farmhouse</option>
 								    <option value="Other">Other</option>
 								</select>
-								<select class="selectpicker form-control com-opts com-hide prop_type_opts" multiple disabled="">
-								    <option value="AgriLand">Agricultural Land</option>
-								    <option value="CoWorking">Co Working Space</option>
-								    <option value="Land">Land/Plot</option>
+								<select class="selectpicker form-control com-opts com-hide prop_type_opts" disabled="">
 								    <option value="Office">Office</option>
 								    <option value="Shop">Shop</option>
 								    <option value="Showroom">Showroom</option>
+								    <option value="Plot/Land">Plot/Land</option>
+								    <option value="Co-Working Space">Co-Working Space</option>
 								    <option value="Warehouse">Warehouse</option>
+								    <option value="Agricultural Land">Agricultural Land</option>
+								    <option value="Industrial Land">Industrial Land</option>
+								    <option value="Factory">Factory</option>
+								    <option value="Other">Other</option>
 								</select>
 								<div class="opts-bedroom text-left">
 									<label>Bedrooms</label>
@@ -122,17 +126,14 @@
 	          			<div class="row">
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Location*</label>
-	          					<!-- <select class="selectpicker form-control locpick" data-live-search="true" name="location" multiple>
-	          						<option data-tokens="Andheri">Andheri</option>
-									  <option data-tokens="Malad">Malad</option>
-									  <option data-tokens="Churchgate">Churchgate</option>
-	          					</select> -->
+	       
 	          					<input type="hidden" name="location" value="" class="glocval">
-	          					<input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
+	          					<!-- <input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
 	          					<div class="loc-list">
 	          						
 
-	          					</div>
+	          					</div> -->
+	          					<input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Area in sq.ft*</label>
@@ -147,15 +148,15 @@
 								<input type="hidden" name="area" value="" class="selectarea">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-	          					<label>Budget</label>
-	          					<div id="slider-range-buy"></div>
+	          					<label>Asking Price</label>
+	          					<input type="text" id="amount" name="budget" class="form-control custom-form">
+	          					<!-- <div id="slider-range-buy"></div>
 	          					<div id="slider-range-rent"></div>
-	          					<input type="text" id="amount" name="budget" readonly class="budget" value="">
-								<!-- <p class="budget"><span id="demo"></span></p> -->
+	          					<input type="text" id="amount" name="budget" readonly class="budget" value=""> -->
 	          				</div>
 	          			</div>
 	          			<div class="image-upload text-center">
-	          				<!-- <input type="file" name="image" id="image" multiple="" class="image-btn select-btn btn-active"> -->
+	
 		          			<button class="image-btn select-btn btn-active" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 							    Upload Images <i class="fa fa-arrow-down"></i>
 							 </button>
@@ -165,7 +166,7 @@
 									  <div class="col-sm-2 imgUp">
 									    <div class="imagePreview"></div>
 											<label class="btn btn-primary image-label">
-												Upload<input type="file" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;" name="imagelinks">
+												Select Image<input type="file" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;" name="imagelinks">
 											</label>
 									  </div>
 									  <i class="fa fa-plus imgAdd"></i>

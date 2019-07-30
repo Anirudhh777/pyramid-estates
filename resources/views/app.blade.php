@@ -31,7 +31,7 @@
                 </div>
                 <ul class="menu-items">
                     <a href="{{ secure_url('/') }}" class="nav-home"><li>Home</li></a>
-                    <a href="#" class="nav-about"><li>About Pyramid</li></a>
+                    <a href="{{ secure_url('/about') }}"><li>About Pyramid</li></a>
                     <a href="#"><li>How it Works</li></a>
                     <a href="#" class="nav-contact"><li>Contact</li></a>
                 </ul>

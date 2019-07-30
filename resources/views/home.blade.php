@@ -1,7 +1,7 @@
 @extends('app')
 @section('front-page')
 <div class="banner">
-	<div class="container text-center">
+	<div class="container text-center desktop">
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 				<div class="progress" data-percentage="40">
@@ -13,7 +13,7 @@
 	                </span>
 	                <div class="progress-value">
 	                    <div>
-	                        <span class="homecircle">Tell us what you want</span>
+	                        <span class="homecircle1">List Your Property</span>
 	                     </div>
 	                </div>
 	            </div>
@@ -28,7 +28,7 @@
 	                </span>
 	                <div class="progress-value">
 	                    <div>
-	                        <span class="homecircle1">Give us 24 hours</span>
+	                        <span class="homecircle1">We'll Market It</span>
 	                    </div>
 	                </div>
 	            </div>
@@ -43,12 +43,18 @@
                 </span>
                 <div class="progress-value">
                     <div>
-                        <span class="homecircle2">Get personalized properties</span>
+                        <span class="homecircle1">Get Enquiries</span>
                     </div>
                 </div>
             </div>
 		</div>
 		<a href="#" class="startbtn nav-contact">Get Started</a>
+	</div>
+	<div class="container mobile">
+		<p>List Your Property</p>
+		<p>We'll Market It</p>
+		<p>Get Enquiries</p>
+
 	</div>
 </div>
 <div class="forms">
@@ -90,21 +96,25 @@
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<input type="hidden" name="prop_type" class="prop_type_val">
 	          					<select class="selectpicker form-control res-opts prop_type_opts" multiple>
-								    <option value="Appartment">Apartment</option>
-								    <option value="FarmHouse">Farm House</option>
-								    <option value="Villa">Villa</option>
-								    <option value="ServiceApt">Service Appartment</option>
-								    <option value="Studio">Studio</option>
+								    <option value="Apartment">Apartment</option>
+								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
+								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
+								    <option value="Villa/Bungalow">Villa/Bungalow</option>
+								    <option value="Service Apartment">Service Apartment</option>
+								    <option value="Farmhouse">Farmhouse</option>
 								    <option value="Other">Other</option>
 								</select>
 								<select class="selectpicker form-control com-opts com-hide prop_type_opts" multiple disabled="">
-								    <option value="AgriLand">Agricultural Land</option>
-								    <option value="CoWorking">Co Working Space</option>
-								    <option value="Land">Land/Plot</option>
 								    <option value="Office">Office</option>
 								    <option value="Shop">Shop</option>
 								    <option value="Showroom">Showroom</option>
+								    <option value="Plot/Land">Plot/Land</option>
+								    <option value="Co-Working Space">Co-Working Space</option>
 								    <option value="Warehouse">Warehouse</option>
+								    <option value="Agricultural Land">Agricultural Land</option>
+								    <option value="Industrial Land">Industrial Land</option>
+								    <option value="Factory">Factory</option>
+								    <option value="Other">Other</option>
 								</select>
 								<div class="opts-bedroom text-left">
 									<label>Bedrooms</label>
@@ -122,11 +132,7 @@
 	          			<div class="row">
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Location*</label>
-	          					<!-- <select class="selectpicker form-control locpick" data-live-search="true" name="location" multiple>
-	          						<option data-tokens="Andheri">Andheri</option>
-									  <option data-tokens="Malad">Malad</option>
-									  <option data-tokens="Churchgate">Churchgate</option>
-	          					</select> -->
+	          				
 	          					<input type="hidden" name="location" value="" class="glocval">
 	          					<input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
 	          					<div class="loc-list">
@@ -150,8 +156,9 @@
 	          					<label>Budget</label>
 	          					<div id="slider-range-buy"></div>
 	          					<div id="slider-range-rent"></div>
-	          					<input type="text" id="amount" name="budget" readonly class="budget" value=" ">
-								<!-- <p class="budget"><span id="demo"></span></p> -->
+	          					<input type="text" id="amount" name="budget" readonly class="budget" value="10 lakh - 12 cr">
+	          					<p class="c_budget">OR</p>
+								<input type="text" id="custom_budget" name="custom_budget" class="form-control custom-form" placeholder="Enter Budget">
 	          				</div>
 	          				<div class="col-lg-12 comments">
 	          					<label>Additional Information</label>

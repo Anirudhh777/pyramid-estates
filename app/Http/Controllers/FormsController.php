@@ -28,12 +28,12 @@ class FormsController extends Controller
         if($this->captcha_verify($info->captcha)){
             $email = 'pyramid.estates.aws@gmail.com';
             $insert = $this->submit_data("buyers", $info);
-            Mail::send('emails.test', ['email' => $email, 'Form' => "Buyer Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional], 
+            Mail::send('emails.buyers', ['email' => $email, 'Form' => "Buyer Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional], 
                 function ($message) use ($email)
             {
-                $message->from('pyramid.estates.aws@gmail.com', 'Pyramid Buyer Form');
+                $message->from('pyramid.estates.aws@gmail.com', 'Pyramid Estates');
                 $message->to($email);
-                $message->subject('Incoming Enquiry');
+                $message->subject('Incoming Enquiry - Buyer');
             });
              return view('thank-you');
          }else{
@@ -45,13 +45,13 @@ class FormsController extends Controller
     {
         if($this->captcha_verify($info->captcha)){
         	$email = 'pyramid.estates.aws@gmail.com';
-             $insert = $this->submit_data("sellers", $info);
-        	Mail::send('emails.test', ['email' => $email, 'Form' => "Seller Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional], 
+          $insert = $this->submit_data("sellers", $info);
+        	Mail::send('emails.sellers', ['email' => $email, 'Form' => "Seller Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional], 
                 function ($message) use ($email)
             {
-                $message->from('pyramid.estates.aws@gmail.com', 'Pyramid Seller Form');
+                $message->from('pyramid.estates.aws@gmail.com', 'Pyramid Estates');
                 $message->to($email);
-                $message->subject('Incoming Enquiry');
+                $message->subject('Incoming Enquiry - Seller');
             });
              return view('thank-you');
         }else{
@@ -63,9 +63,18 @@ class FormsController extends Controller
     {
         if($info->hasFile('imagelinks')){
             $image_links = $this->file_uploads($info);
-            DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional, 'images' => implode(" , ",$image_links)]);
+            if($table == "buyers"){
+              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget, 'additional' => $info->additional, 'images' => implode(" , ",$image_links)]);
+            }else{
+              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional, 'images' => implode(" , ",$image_links)]);
+            }
+            
         }else{
-            DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional]);
+            if($table == "buyers"){
+              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional]);
+            }else{
+              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional]);
+            }
         }
         
     }

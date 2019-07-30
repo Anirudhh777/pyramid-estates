@@ -94,7 +94,7 @@
 			Type: {{ $property_type	}} <br>
 			Property: {{ $kind_prop	}} <br>
 			Bedrooms : {{ $bedrooms	}} <br>
-			Locations : {{ $locations	}} <br>
+			Location : {{ $locations	}} <br>
 			Area : {{ $area	}} <br>
 			Budget : {{ $budget	}} <br>
 			Additional Comments : {{ $additional	}} <br>

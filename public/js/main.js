@@ -14,19 +14,23 @@ $( document ).ready(function() {
         if($(".user_type").val() == 'Rent' || $(".user_type").val() == 'Rent Out'){
           $("#slider-range-buy").hide();
           $("#slider-range-rent").show();
+           if(window.location.pathname == '/'){$( "#amount" ).val("10 thousand - 2 lakh");}
         }else{
            $("#slider-range-buy").show();
           $("#slider-range-rent").hide();
+          if(window.location.pathname == '/'){$( "#amount" ).val("10 lakh - 12 cr");}
         }
       }else if(name == "res_comm_btn"){
       	$(".res_comm").val($(this).val());
       	if(values[name] == "residential"){
 	      	$(".com-opts").attr("disabled",true).hide();
 	      	$(".res-opts").attr("disabled",false).show();
+          $(".opts-bedroom").show();
 	      }else if(values[name] == "commercial"){
 	      	$(".com-opts").attr("disabled",false).removeClass('disabled com-hide').show();
 	      	$(".com-opts button").removeClass('disabled').show();
-	      	$(".res-opts").attr("disabled",true).hide();
+	      	$(".res-opts").attr("disabled",true);
+          $(".res-opts").hide();
           $(".opts-bedroom").hide();
 	      }
       }
@@ -38,34 +42,46 @@ $( document ).ready(function() {
   $(".prop_type_opts").change(function(e){
       prop_types = $(this).val();
       $('.prop_type_val').val(prop_types.toString());
-      if($(this).val().includes("Appartment")){
-        $(".opts-bedroom").show();
-      }else{
-        $(".opts-bedroom").hide();
-      }
+      // if($(this).val().includes("Appartment")){
+      //   $(".opts-bedroom").show();
+      // }else{
+      //   $(".opts-bedroom").hide();
+      // }
   });
 
 
   $(".select-btn-area").click(function(){
-      name = $($(this)).attr("name");
+    name = $($(this)).attr("name");
+    if(window.location.pathname == '/'){
       if(area.includes($(this).val())){
-      	 area.splice(area.indexOf($(this).val()));
+         area.splice(area.indexOf($(this).val()));
       }else{
-      	 area.push($(this).val());
+         area.push($(this).val());
       }
-      $('.selectarea').val(area);
       $(this).toggleClass('btn-active-area');
+    }else{
+      area = $(this).val();
+      $('.btn-active-area').removeClass('btn-active-area');
+      $(this).addClass('btn-active-area');
+    }
+      $('.selectarea').val(area);
   });
 
    $(".select-btn-area-br").click(function(){
       name = $($(this)).attr("name");
-      if(bedrooms.includes($(this).val())){
-         bedrooms.splice(bedrooms.indexOf($(this).val()));
+      if(window.location.pathname == '/'){
+        if(bedrooms.includes($(this).val())){
+           bedrooms.splice(bedrooms.indexOf($(this).val()));
+        }else{
+           bedrooms.push($(this).val());
+        }
+         $(this).toggleClass('btn-active-area-br');
       }else{
-         bedrooms.push($(this).val());
+        $('.btn-active-area-br').removeClass('btn-active-area-br');
+        $(this).addClass('btn-active-area-br');
+        bedrooms = $(this).val();
       }
       $('.selectarea-br').val(bedrooms);
-      $(this).toggleClass('btn-active-area');
   });
 
     function calc_values(vals){
@@ -126,14 +142,14 @@ $( "#slider-range-rent" ).slider({
     e.preventDefault();
     $('html, body').animate({
         scrollTop: $(".banner").offset().top
-    }, 2000);
+    }, 1000);
   })
 
   $(".nav-contact").click(function(e) {
     e.preventDefault();
     $('html, body').animate({
         scrollTop: $(".forms").offset().top
-    }, 2000);
+    }, 1000);
   })
 
   if(window.location.pathname == '/' || window.location.pathname == '/list')
@@ -143,15 +159,17 @@ $( "#slider-range-rent" ).slider({
     autocomplete.setComponentRestrictions(
     {'country': ['in']});
      autocomplete.setFields(
-    ['name', 'address_components']);
+    ['name', 'address_component']);
     autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace();
-      if(!places.includes(place.name)){
+      if(!places.includes(place.name) && window.location.pathname == '/'){
         $('.loc-list').append('<input type="button" value="'+place.name+'" class="select-btn-loc">');
-        places.push(place.name);
+          places.push(place.name);
+          $(".glocval").val(places.toString());
+          $(".gloc").val("");
+      }else{
+        $('.glocval').val(place.name);
       }
-      $(".glocval").val(places.toString());
-       $(".gloc").val("");
     });
   }
 
@@ -171,17 +189,16 @@ $( "#slider-range-rent" ).slider({
           required: true,
           minlength: 10,
           maxlength: 10,
-          number: true,
-          remote: {
-              url: "/buyer_validate_phone",
-              type: "post"
-            }
+          number: true
         },
         bedrooms_vals: {
             required: function(element){
-              return $('.prop_type_val').val().includes("Appartment");
+              return $('.res_comm').val('residential');
           }
         },
+        custom_budget: {
+          number: true
+        }
       },
       messages:
         {
@@ -209,12 +226,12 @@ $( "#slider-range-rent" ).slider({
           required: true,
           minlength: 10,
           maxlength: 10,
-          number: true,
-          remote: {
-              url: "/seller_validate_phone",
-              type: "post"
-            }
+          number: true
         },
+      },
+      budget: {
+        number: true,
+        required: true
       },
       messages:
         {
@@ -234,7 +251,8 @@ $( "#slider-range-rent" ).slider({
 
   $(".imgAdd").click(function(){
       if($(".image-label").length < 7){
-        $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary image-label">Upload<input type="file" class="uploadFile img" style="width:0px;height:0px;overflow:hidden;" name="imagelinks' + $(".image-label").length +'"></label><i class="fa fa-times del"></i></div>');
+        $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary image-label">Select Image<input type="file" class="uploadFile img" style="width:0px;height:0px;overflow:hidden;" name="imagelinks' + $(".image-label").length +'"></label><i class="fa fa-times del"></i></div>');
+          $('.imgAdd').show();
         if($(".image-label").length == 6){ $('.imgAdd').hide(); }
       }
     });
@@ -251,11 +269,11 @@ $( "#slider-range-rent" ).slider({
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; 
      
-            if (/^image/.test( files[0].type)){ // only image file
-                var reader = new FileReader(); // instance of the FileReader
-                reader.readAsDataURL(files[0]); // read the local file
+            if (/^image/.test( files[0].type)){ 
+                var reader = new FileReader(); 
+                reader.readAsDataURL(files[0]); 
      
-                reader.onloadend = function(){ // set image data as background of div
+                reader.onloadend = function(){ 
                    
                  uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+this.result+")");
                 }

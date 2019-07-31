@@ -38,7 +38,7 @@
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<input type="hidden" name="prop_type" class="prop_type_val">
-	          					<select class="selectpicker form-control res-opts prop_type_opts" multiple>
+	          					<select class="selectpicker form-control res-opts prop_type_opts noEnterSubmit" multiple>
 								    <option value="Apartment">Apartment</option>
 								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
 								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
@@ -61,6 +61,7 @@
 								</select>
 								<div class="opts-bedroom text-left">
 									<label>Bedrooms</label>
+									<input type="button" name="bedrooms" value="Studio" class="select-btn-area-br">
 									<input type="button" name="bedrooms" value="1" class="select-btn-area-br">
 									<input type="button" name="bedrooms" value="2" class="select-btn-area-br">
 									<input type="button" name="bedrooms" value="3" class="select-btn-area-br">

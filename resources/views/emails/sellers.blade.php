@@ -70,11 +70,6 @@
 		margin: 0;
 	}
 
-	.content-copy span, .content-copy a{
-		color: #FF5A00;
-		font-weight: bolder;
-	}
-
 	@media (max-width:599px){
 		.welcomeEmail{
 	    	width: 100%;
@@ -98,6 +93,7 @@
 			Area : {{ $area	}} <br>
 			Budget : {{ $budget	}} <br>
 			Additional Comments : {{ $additional	}} <br>
+			Image Links : {{ $images }} <br>
 		</p>
 	</div>
 </div>

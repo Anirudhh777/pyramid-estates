@@ -32,7 +32,7 @@
                 <ul class="menu-items">
                     <a href="{{ secure_url('/') }}" class="nav-home"><li>Home</li></a>
                     <a href="{{ secure_url('/about') }}"><li>About Pyramid</li></a>
-                    <!-- <a href="#"><li>How it Works</li></a> -->
+                    <a href="{{ secure_url('/how-it-works') }}"><li>How it Works</li></a>
                     <a href="#" class="nav-contact"><li>Contact</li></a>
                 </ul>
                 <div id="nav-icon3">
@@ -49,7 +49,7 @@
                 <ul>
                    <a href="{{ secure_url('/') }}" class="nav-home"><li>Home</li></a>
                    <a href="{{ secure_url('/about') }}"><li>About Pyramid</li></a>
-                    <!-- <a href="#"><li>How it Works</li></a> -->
+                    <a href="{{ secure_url('/how-it-works') }}"><li>How it Works</li></a>
                     <a href="#" class="nav-contact"><li>Contact</li></a>               
                  </ul>
             </div>
@@ -57,7 +57,20 @@
         @yield('front-page')
         <div class="footer">
             <div class="container text-center">
-                <h1>Pyramid Estate Contact Details</h1>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                          <p>022 26051514 / 26482670</p>
+                    </div>
+                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <p>Palatial Apartments, 21st Road 
+                            <br>
+                            Bandra(W), Mumbai - 400050
+                        </p>
+                    </div>
+                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <p>support@pyramidestates.in</p>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
@@ -74,6 +87,14 @@
                  document.getElementById("gcaptcha").value = response;
                  document.getElementById("sellform").submit();
                }
+        </script>
+        <script type="text/javascript">
+            function stopEnterKey(evt) {
+                var evt = (evt) ? evt : ((event) ? event : null);
+                var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+                if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+            }
+            document.onkeypress = stopEnterKey;
         </script>
     </footer>
 </html>

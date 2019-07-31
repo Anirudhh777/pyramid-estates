@@ -69,7 +69,7 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
     background-size: cover; 
 }
 
-.about{
+.about, .works{
   padding: 50px 20px;
   height: 100%;
 }
@@ -317,16 +317,30 @@ textarea.form-control{
 }
 
 .footer{
-  padding: 20px;
+  padding: 30px 0px;
   background-color: #444444;
 }
 
 .footer h1{
-  text-transform: uppercase;
-    letter-spacing: 0.5px;
+      text-transform: uppercase;
+    letter-spacing: 3px;
     color: #fff;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.footer p{
+        color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
     margin-bottom: 0px;
+}
+
+.footer .container .row div{
+  display: flex;
+justify-content: center; 
+align-items: center;
 }
 
 
@@ -698,6 +712,7 @@ form label.error {
 
 .team-member {
     overflow: hidden;
+    margin-top: 30px;
 }
 
 .team-member .member-photo {
@@ -713,16 +728,18 @@ form label.error {
 .team-member .member-name {
     font-size: 20px;
     color: #D2AF3C;
-    font-weight: 600;
+        font-weight: 900;
     margin-bottom: 5px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
 }
 
 .team-member .member-position {
-    color: #D2AF3C;
-    font-size: 15px;
-    letter-spacing: 1px;
-    font-weight: 600;
+        color: #D2AF3C;
+    font-size: 13.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .team-member .member-quotes {
@@ -743,6 +760,17 @@ form label.error {
     height: auto;
     max-width: 100%;
     vertical-align: middle;
+}
+
+.about-text{
+      margin-bottom: 20px;
+    color: #000000;
+    letter-spacing: 0.2px;
+}
+
+.about-text p, .about ul li{
+          color: #000000;
+    letter-spacing: 0.2px;
 }
 
 
@@ -922,6 +950,10 @@ form label.error {
   .team-member .member-photo {
       width: 80px;
   }
+
+  .footer p{
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 600px){
@@ -949,6 +981,8 @@ form label.error {
   }
 
   .banner .mobile p {
-    font-size: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 }

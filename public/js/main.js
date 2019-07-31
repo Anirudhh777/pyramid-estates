@@ -166,17 +166,17 @@ $( "#slider-range-rent" ).slider({
     autocomplete.setComponentRestrictions(
     {'country': ['in']});
      autocomplete.setFields(
-    ['name', 'address_component']);
+    ['name', 'formatted_address']);
     autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace();
-      if(!places.includes(place.name) && window.location.pathname == '/'){
+      if(!places.includes(place.name) && place.hasOwnProperty('formatted_address') && window.location.pathname == '/'){
         $('.loc-list').append('<input type="button" value="'+place.name+'" class="select-btn-loc">');
           places.push(place.name);
           $(".glocval").val(places.toString());
           $(".gloc").val("");
-      }else{
+      }else if(place.hasOwnProperty('formatted_address') && window.location.pathname == '/list'){
         $('.glocval').val(place.name);
-      }
+      }else if(!place.hasOwnProperty('formatted_address')){$(".gloc").val("");}
     });
   }
 
@@ -200,7 +200,7 @@ $( "#slider-range-rent" ).slider({
         },
         bedrooms_vals: {
             required: function(element){
-              return $('.res_comm').val('residential');
+              return $('.res_comm').val() == ('residential');
           }
         },
         custom_budget: {
@@ -236,6 +236,11 @@ $( "#slider-range-rent" ).slider({
           number: true
         },
       },
+      bedrooms_vals: {
+            required: function(element){
+              return $('.res_comm').val() == ('residential');
+          }
+        },
       budget: {
         number: true,
         required: true

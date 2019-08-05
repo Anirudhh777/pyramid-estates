@@ -62,10 +62,14 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                          <p><a href="#" class="phoneone">022 26051514</a> / <a href="#" class="phonetwo">022 26482670</a> </p>
+                        <p>
+                            <i class="fa fa-phone"></i><br>
+                            <a href="#" class="phoneone">022 26051514</a> / <a href="#" class="phonetwo">022 26482670</a> 
+                        </p>
                     </div>
                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <p> 
+                            <i class="fa fa-address-card"></i><br>
                             <a href="https://goo.gl/maps/9RiuWNpcw1XkoUUe6" target="_blank">
                                 Palatial Apartments, 21st Road 
                                 <br>
@@ -74,7 +78,10 @@
                         </p>
                     </div>
                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <p> <a href="mailto:support@pyramidestates.in">support@pyramidestates.in</a></p>
+                        <p> 
+                             <i class="fa fa-envelope"></i><br>
+                            <a href="mailto:support@pyramidestates.in">support@pyramidestates.in</a>
+                        </p>
                     </div>
                 </div>
             </div>

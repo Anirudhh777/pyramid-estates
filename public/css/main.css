@@ -346,12 +346,18 @@ textarea.form-control{
     margin-bottom: 0px;
 }
 
-.footer .container .row div{
+/*.footer .container .row div{
   display: flex;
 justify-content: center; 
 align-items: center;
-}
+}*/
 
+
+.footer i{
+      font-size: 22px;
+    margin-bottom: 8px;
+    color: #D2AF3C;
+}
 
 .thank-you{
   padding: 40px;
@@ -979,12 +985,20 @@ form label.error {
       width: 80px;
   }
 
+  .footer {
+    padding: 30px 30px 0px 30px;
+  }
+
   .footer p{
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
 
   .banner {
     padding: 50px 0px;
+  }
+
+  .banner2 h1{
+    font-size: 17px;
   }
 }
 

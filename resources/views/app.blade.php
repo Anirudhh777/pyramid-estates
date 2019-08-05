@@ -84,9 +84,14 @@
                         </p>
                     </div>
                 </div>
+                <div class="social">
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-instagram"></i></a>
+                </div>
             </div>
-            
         </div>
+      
         <div class="copyright">
             <div class="container text-center ">
                  <p><i class="fa fa-copyright"></i> Copyright <a href="https://www.brimstonecreative.com" target="_blank">www.brimstonecreative.com</a></p>

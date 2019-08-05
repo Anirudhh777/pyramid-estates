@@ -305,4 +305,5 @@ $( "#slider-range-rent" ).slider({
       }
     });
 
+
 });

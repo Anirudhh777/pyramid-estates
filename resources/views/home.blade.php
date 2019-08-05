@@ -37,9 +37,8 @@
 									<input type="hidden" name="res_comm" class="res_comm">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-	          					<label class="text-left">Property Type</label>
 	          					<input type="hidden" name="prop_type" class="prop_type_val">
-	          					<select class="selectpicker form-control res-opts prop_type_opts noEnterSubmit" multiple>
+	          					<select class="selectpicker form-control res-opts prop_type_opts noEnterSubmit" multiple title="Select Property Type">
 								    <option value="Apartment">Apartment</option>
 								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
 								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
@@ -48,7 +47,7 @@
 								    <option value="Farmhouse">Farmhouse</option>
 								    <option value="Other">Other</option>
 								</select>
-								<select class="selectpicker form-control com-opts com-hide prop_type_opts" multiple disabled="">
+								<select class="selectpicker form-control com-opts com-hide prop_type_opts" multiple disabled="" title="Select Property Type">
 								    <option value="Office">Office</option>
 								    <option value="Shop">Shop</option>
 								    <option value="Showroom">Showroom</option>

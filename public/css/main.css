@@ -63,7 +63,7 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
 }
 
 .banner{
-	padding: 50px 20px;
+	padding: 50px 50px;
 	background: url(../assets/images/background.jpg) no-repeat;
     height: 100%;
     background-size: cover; 
@@ -76,7 +76,7 @@ p, h1, h2, h3, h4, h5, li, a, span, label{
 
 .banner2{
   padding: 50px 20px;
-  background: url(../assets/images/keys.jpg) no-repeat 50% top;
+  background: url(../assets/images/keys.jpg) no-repeat 40% 60%;
   height: 100%;
   background-size: cover; 
 }
@@ -311,7 +311,7 @@ textarea.form-control{
 }
 
 .banner2 h1{
-          background-color: rgba(210, 175, 60, 0.80);
+/*          background-color: rgba(210, 175, 60, 0.80);*/
     width: 90%;
     text-align: center;
     font-size: 18px;
@@ -326,7 +326,7 @@ textarea.form-control{
 }
 
 .footer{
-  padding: 30px 0px;
+      padding: 30px 0px 14px 0px;
   background-color: #444444;
 }
 
@@ -345,6 +345,10 @@ textarea.form-control{
     letter-spacing: 1px;
     margin-bottom: 0px;
 }
+
+ .footer a{
+  text-decoration: underline;
+ }
 
 /*.footer .container .row div{
   display: flex;
@@ -807,6 +811,16 @@ form label.error {
     letter-spacing: 1px;
 }
 
+.social{
+  padding: 5px 0px;
+}
+
+.social i{
+  padding: 0px 20px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
 
 @media screen and (max-width: 992px){
   .res_comm_sec .select-btn{
@@ -944,6 +958,10 @@ form label.error {
       cursor: pointer;
       float: right;
   }
+
+  .banner{
+    padding: 50px 20px;
+  }
 }
 
 @media screen and (max-width: 767px){
@@ -1026,6 +1044,20 @@ form label.error {
       bottom: 66px;
       line-height: 25px;
       width: 50%;
+  }
+
+  .progress .progress-value .homecircle {
+      left: 30px;
+      bottom: 48px;
+      line-height: 25px;
+      width: 66%;
+  }
+
+  .progress .progress-value .homecircle2 {
+    left: 34px;
+    bottom: 56px;
+    line-height: 25px;
+    width: 60%;
   }
 
 }

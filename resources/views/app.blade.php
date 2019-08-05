@@ -2,6 +2,9 @@
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
+        <link rel="icon" type="image/png" href="{{ secure_asset('assets/images/favicon-32x32.png') }}" sizes="32x32" />
+        <link rel="icon" type="image/png" href="{{ secure_asset('assets/images/favicon-16x16.png') }}" sizes="16x16" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,7 +22,7 @@
          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
          <script src="{{ secure_asset('js/jquery-ui-touch-.min.js') }}"></script>
          <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GMAPS_KEY') }}&libraries=places"></script>
-         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+         <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     </head>
     <body>
         <div class="header">
@@ -59,18 +62,27 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                          <p>022 26051514 / 26482670</p>
+                          <p><a href="#" class="phoneone">022 26051514</a> / <a href="#" class="phonetwo">022 26482670</a> </p>
                     </div>
                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <p>Palatial Apartments, 21st Road 
-                            <br>
-                            Bandra(W), Mumbai - 400050
+                        <p> 
+                            <a href="https://goo.gl/maps/9RiuWNpcw1XkoUUe6" target="_blank">
+                                Palatial Apartments, 21st Road 
+                                <br>
+                                Bandra(W), Mumbai - 400050
+                            </a>
                         </p>
                     </div>
                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <p>support@pyramidestates.in</p>
+                        <p> <a href="mailto:support@pyramidestates.in">support@pyramidestates.in</a></p>
                     </div>
                 </div>
+            </div>
+            
+        </div>
+        <div class="copyright">
+            <div class="container text-center ">
+                 <p><i class="fa fa-copyright"></i> Copyright <a href="https://www.brimstonecreative.com" target="_blank">www.brimstonecreative.com</a></p>
             </div>
         </div>
     </body>
@@ -78,15 +90,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.min.js"></script>
         <script>
-            var onSubmit = function(response) {
-                 document.getElementById("gcaptcha").value = response;
-                 document.getElementById("buyform").submit();
-               }
+            // var onSubmit = function(response) {
+            //      document.getElementById("gcaptcha").value = response;
+            //      document.getElementById("buyform").submit();
+            //    }
 
-               var onSubmitSell = function(response) {
-                 document.getElementById("gcaptcha").value = response;
-                 document.getElementById("sellform").submit();
-               }
+            //    var onSubmitSell = function(response) {
+            //      document.getElementById("gcaptcha").value = response;
+            //      document.getElementById("sellform").submit();
+            //    }
         </script>
         <script type="text/javascript">
             function stopEnterKey(evt) {

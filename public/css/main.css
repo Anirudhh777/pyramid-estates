@@ -261,7 +261,10 @@ textarea.form-control{
 }
 
 .submit-btn{
+    background: #FF7F50;
+    color: #fff !important;
     margin-top: 40px;
+    border: 1px solid #FF7F50 !important;
     text-align: center;
 }
 
@@ -308,12 +311,18 @@ textarea.form-control{
 }
 
 .banner2 h1{
-      text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #fff;
-    margin-bottom: 30px;
-    font-size: 22px;
+          background-color: rgba(210, 175, 60, 0.80);
+    width: 90%;
+    text-align: center;
+    font-size: 18px;
     font-weight: 700;
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+    border-radius: 3px;
+        text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
 }
 
 .footer{
@@ -330,8 +339,8 @@ textarea.form-control{
     margin-bottom: 10px;
 }
 
-.footer p{
-        color: #fff;
+.footer p, .footer a{
+        color: #24a0ed;
     font-size: 15px;
     letter-spacing: 1px;
     margin-bottom: 0px;
@@ -462,6 +471,13 @@ align-items: center;
     bottom: 68px;
     line-height: 25px;
     width: 60%;
+}
+
+.progress .progress-value .homecircle3 {
+    left: 48px;
+    bottom: 76px;
+    line-height: 25px;
+    width: 50%;
 }
 /* This for loop creates the    necessary css animation names 
  Due to the split circle of progress-left and progress right, we must use the animations on each side. 
@@ -773,6 +789,18 @@ form label.error {
     letter-spacing: 0.2px;
 }
 
+.copyright{
+  background: #D2AF3C;
+  padding: 5px 0px;
+}
+
+.copyright p, .copyright a{
+  margin-bottom: 0px;
+    font-size: 12px;
+    color: #444444;
+    letter-spacing: 1px;
+}
+
 
 @media screen and (max-width: 992px){
   .res_comm_sec .select-btn{
@@ -922,12 +950,12 @@ form label.error {
     margin-bottom: 40px;
   }
 
-  .banner .desktop{
+  /*.banner .desktop{
     display: none;
-  }
+  }*/
 
   .banner .mobile{
-    display: block;
+    /*display: block;*/
     margin-bottom: 50px;
   }
 
@@ -954,6 +982,38 @@ form label.error {
   .footer p{
     margin-bottom: 10px;
   }
+
+  .banner {
+    padding: 50px 0px;
+  }
+}
+
+@media screen and (max-width: 680px){
+  /*.progress .progress-value span{
+    font-size: 14px;
+    letter-spacing: initial;
+  }*/
+
+
+  .progress {
+    width: 180px;
+    height: 180px;
+  }
+
+  .progress .progress-value .homecircle3 {
+      left: 40px;
+      bottom: 65px;
+      line-height: 25px;
+      width: 54%;
+  }
+
+  .progress .progress-value .homecircle1 {
+      left: 44px;
+      bottom: 66px;
+      line-height: 25px;
+      width: 50%;
+  }
+
 }
 
 @media screen and (max-width: 600px){
@@ -972,6 +1032,49 @@ form label.error {
   .nav-tabs > li, .nav-pills > li{
     height: 40px
   }
+
+   .progress {
+    width: 150px;
+    height: 150px;
+  }
+
+  .circle-mob{
+    width: 32% !important;
+  }
+
+  .progress .progress-value span{
+    font-size: 13px;
+    letter-spacing: initial;
+  }
+
+  .progress .progress-value .homecircle {
+    left: 29px;
+    bottom: 42px;
+    line-height: initial;
+    width: 60%;
+  }
+
+  .progress .progress-value .homecircle1 {
+    left: 42px;
+    bottom: 55px;
+    line-height: initial;
+    width: 44%;
+}
+
+  .progress .progress-value .homecircle2 {
+    left: 14px;
+    bottom: 49px;
+    line-height: initial;
+    width: 82%;
+  }
+
+  .progress .progress-value .homecircle3 {
+      left: 28px;
+      bottom: 56px;
+      line-height: initial;
+      width: 63%;
+  }
+
 }
 
 @media screen and (max-width: 480px){
@@ -985,4 +1088,103 @@ form label.error {
     text-transform: uppercase;
     letter-spacing: 1px;
   }
+
+  .progress {
+    width: 120px;
+    height: 120px;
+  }
+
+  .circle-mob{
+    width: 32% !important;
+  }
+
+  .progress .progress-bar{
+    border-width: 2px;
+  }
+
+  .progress .progress-value span{
+    font-size: 12px;
+    letter-spacing: initial;
+  }
+
+  .progress .progress-value .homecircle {
+    left: 19px;
+    bottom: 34px;
+    line-height: initial;
+    width: 69%;
+  }
+
+  .progress .progress-value .homecircle1 {
+    left: 30px;
+    bottom: 44px;
+    line-height: initial;
+    width: 54%;
+}
+
+  .progress .progress-value .homecircle2 {
+    left: 6px;
+    bottom: 38px;
+    line-height: initial;
+    width: 92%;
+  }
+
+  .progress .progress-value .homecircle3 {
+    left: 17px;
+    bottom: 44px;
+    line-height: initial;
+    width: 73%;
+  }
+  
+}
+
+@media screen and (max-width: 400px){
+ 
+
+  .progress .progress-value span{
+    font-size: 10px;
+    letter-spacing: initial;
+  }
+
+  .progress .progress-value .homecircle {
+    left: 11px;
+    bottom: 26px;
+    line-height: initial;
+    width: 77%;
+  }
+
+  .progress .progress-value .homecircle1 {
+    left: 21px;
+    bottom: 33px;
+    line-height: initial;
+    width: 56%;
+  }
+
+  .progress .progress-value .homecircle2 {
+    left: 5px;
+    bottom: 28px;
+    line-height: initial;
+    width: 92%;
+  }
+
+  .progress .progress-value .homecircle3 {
+    left: 12px;
+    bottom: 34px;
+    line-height: initial;
+    width: 78%;
+  }
+
+  .progress {
+    width: 90px;
+    height: 90px;
+  }
+
+  .circle-mob {
+    width: 31.5% !important;
+  }
+
+  .image-btn {
+    width: 100% !important;
+
+  }
+
 }

@@ -1,64 +1,68 @@
 @extends('app')
 @section('front-page')
 <div class="banner">
-	<div class="container text-center desktop">
-		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-				<div class="progress" data-percentage="40">
-	                <span class="progress-left">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <span class="progress-right">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <div class="progress-value">
-	                    <div>
-	                        @if(Request::is('list'))
-							    <span class="homecircle1">List Your Property</span>
-							@else
-								<span class="homecircle">Tell us what you want</span>
-							@endif  
-	                     </div>
-	                </div>
-	            </div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">	
-				<div class="progress" data-percentage="70">
-	                <span class="progress-left">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <span class="progress-right">
-	                    <span class="progress-bar"></span>
-	                </span>
-	                <div class="progress-value">
-	                    <div>
-	                    	@if(Request::is('list'))
-	                        	<span class="homecircle1">We'll Market It</span>
-	                        @else
-								<span class="homecircle1">Give us 24 hours</span>
-							@endif  
-	                    </div>
-	                </div>
-	            </div>
+	<div class="container-fluid">
+		<div class="text-center desktop">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 circle-mob">
+					<div class="progress" data-percentage="40">
+		                <span class="progress-left">
+		                    <span class="progress-bar"></span>
+		                </span>
+		                <span class="progress-right">
+		                    <span class="progress-bar"></span>
+		                </span>
+		                <div class="progress-value">
+		                    <div>
+		                        @if(Request::is('list'))
+								    <span class="homecircle1">List Your Property</span>
+								@else
+									<span class="homecircle">Tell us what you want</span>
+								@endif  
+		                     </div>
+		                </div>
+		            </div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 circle-mob">
+					<div class="progress" data-percentage="70">
+		                <span class="progress-left">
+		                    <span class="progress-bar"></span>
+		                </span>
+		                <span class="progress-right">
+		                    <span class="progress-bar"></span>
+		                </span>
+		                <div class="progress-value">
+		                    <div>
+		                    	@if(Request::is('list'))
+		                        	<span class="homecircle3">We'll Market It</span>
+		                        @else
+									<span class="homecircle1">Give us 24 hours</span>
+								@endif  
+		                    </div>
+		                </div>
+		            </div>
 
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 circle-mob">
+					<div class="progress" data-percentage="100">
+		                <span class="progress-left">
+		                    <span class="progress-bar"></span>
+		                </span>
+		                <span class="progress-right">
+		                    <span class="progress-bar"></span>
+		                </span>
+		                <div class="progress-value">
+		                    <div>
+		                        @if(Request::is('list'))
+		                        	<span class="homecircle1">Get Enquiries</span>
+		                        @else
+									<span class="homecircle2">Get personalized properties</span>
+								@endif  
+		                    </div>
+		                </div>
+		            </div>
+		         </div>
 			</div>
-			<div class="progress" data-percentage="100">
-                <span class="progress-left">
-                    <span class="progress-bar"></span>
-                </span>
-                <span class="progress-right">
-                    <span class="progress-bar"></span>
-                </span>
-                <div class="progress-value">
-                    <div>
-                        @if(Request::is('list'))
-                        	<span class="homecircle1">Get Enquiries</span>
-                        @else
-							<span class="homecircle2">Get personalized properties</span>
-						@endif  
-                    </div>
-                </div>
-            </div>
 		</div>
 	</div>
 	<div class="container mobile">

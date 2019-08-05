@@ -25,7 +25,7 @@ class FormsController extends Controller
 
     protected function buyer_register(Request $info)
     {
-        if($this->captcha_verify($info->captcha)){
+        try{
             $email = 'leads@pyramidestates.in';
             $insert = $this->submit_data("buyers", $info);
             Mail::send('emails.buyers', ['email' => $email, 'Form' => "Buyer Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional], 
@@ -36,25 +36,25 @@ class FormsController extends Controller
                 $message->subject('Incoming Enquiry - Buyer');
             });
              return view('thank-you');
-         }else{
+        }catch(\Exception $e){
             return view('fail');
-         }
+        }
     }
 
     protected function seller_register(Request $info)
     {
-        if($this->captcha_verify($info->captcha)){
-        	$email = 'listings@pyramidestates.in';
+       try{
+          $email = 'listings@pyramidestates.in';
           $insert = $this->submit_data("sellers", $info);
-        	Mail::send('emails.sellers', ['email' => $email, 'Form' => "Seller Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional, 'images' => implode(" , ",$insert)], 
+          Mail::send('emails.sellers', ['email' => $email, 'Form' => "Seller Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional, 'images' => implode(" , ",$insert)], 
                 function ($message) use ($email)
             {
                 $message->from('pyramid.estates.aws@gmail.com', 'Pyramid Estates');
                 $message->to($email);
                 $message->subject('Incoming Enquiry - Seller');
             });
-             return view('thank-you');
-        }else{
+             return view('thank-you')->with('seller', true);
+       }catch(\Exception $e){
             return view('fail');
         }
     }

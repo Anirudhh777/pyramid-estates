@@ -38,6 +38,7 @@
 									<input type="hidden" name="res_comm" class="res_comm">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	          					<label class="text-left">Property Type</label>
 	          					<input type="hidden" name="prop_type" value="" class="prop_type_val">
 	          					<select class="selectpicker form-control res-opts prop_type_opts">
 	          						 <option value="0" disabled="" selected="">Nothing Selected</option>
@@ -133,12 +134,12 @@
 	          			</div>
 	          		</div>
 	          		<div class="text-center">
-	          			<div class="g-recaptcha"
+	          			<!-- <div class="g-recaptcha"
 					          data-sitekey="6Lcqxa4UAAAAAF7yIZYJQYf0zrbpUsW-59Ssn6Jb"
 					          data-callback="onSubmitSell"
 					          data-size="invisible">
 					    </div>
-	          			<input type="hidden" name="captcha" value="" id="gcaptcha">
+	          			<input type="hidden" name="captcha" value="" id="gcaptcha"> -->
 	          			<input type="submit" name="Submit" class="select-btn submit-btn">
 	          		</div>
 	          	</form>

@@ -14,7 +14,7 @@ $( document ).ready(function() {
         if($(".user_type").val() == 'Rent' || $(".user_type").val() == 'Rent Out'){
           $("#slider-range-buy").hide();
           $("#slider-range-rent").show();
-           if(window.location.pathname == '/'){$( "#amount" ).val("10 thousand - 2 lakh");}
+           if(window.location.pathname == '/'){$( "#amount" ).val("10 thousand - 5 lakh");}
         }else{
            $("#slider-range-buy").show();
           $("#slider-range-rent").hide();
@@ -116,8 +116,8 @@ $( "#slider-range-buy" ).slider({
 $( "#slider-range-rent" ).slider({
       range: true,
       min: 10000,
-      max: 400000,
-      values: [ 10000, 200000 ],
+      max: 2000000,
+      values: [ 10000, 500000 ],
       slide: function( event, ui ) {
         vals = calc_values([ui.values[0], ui.values[1]]);
         $( "#amount" ).val(vals[0] + " - " + vals[1] );
@@ -202,9 +202,6 @@ $( "#slider-range-rent" ).slider({
             required: function(element){
               return $('.res_comm').val() == ('residential');
           }
-        },
-        custom_budget: {
-          number: true
         }
       },
       messages:
@@ -219,7 +216,8 @@ $( "#slider-range-rent" ).slider({
               }     
           },
       submitHandler: function(form) {
-          grecaptcha.execute();
+         document.getElementById("buyform").submit();
+          // grecaptcha.execute();
       }
   });
 
@@ -242,7 +240,6 @@ $( "#slider-range-rent" ).slider({
           }
         },
       budget: {
-        number: true,
         required: true
       },
       messages:
@@ -257,7 +254,8 @@ $( "#slider-range-rent" ).slider({
               }     
           },
       submitHandler: function(form) {
-          grecaptcha.execute();
+        document.getElementById("sellform").submit();
+          // grecaptcha.execute();
       }
   });
 
@@ -270,7 +268,6 @@ $( "#slider-range-rent" ).slider({
     });
 
     $(document).on("click", "i.del" , function() {
-    	console.log($(this).val());
       $(this).parent().remove();
     });
 
@@ -292,6 +289,20 @@ $( "#slider-range-rent" ).slider({
             }
           
         });
+    });
+
+    $(".phoneone").click(function(e) {
+      e.preventDefault();
+      if($(window).width() < 767){
+        window.location.href="tel://912226051514";
+      }
+    });
+
+    $(".phonetwo").click(function(e) {
+      e.preventDefault();
+      if($(window).width() < 767){
+        window.location.href="tel://912226482670";
+      }
     });
 
 });

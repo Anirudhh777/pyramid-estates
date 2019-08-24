@@ -84,15 +84,15 @@ $( document ).ready(function() {
       $('.selectarea-br').val(bedrooms);
   });
 
-    function calc_values(vals){
+    function calc_values(vals, method){
       calc_vals = [];
       for(i=0;i<2;i++){
-        if(vals[i] > 10000000){
+        if(vals[i] > 10000000 && method == "Buy"){
            amount =  vals[i] / 10000000;
            if (Math.ceil(amount) == 20) {addon = "cr +";}else{addon = "cr";}
          }else if(vals[i] < 10000000 && vals[i] >= 100000){
            amount =  vals[i] / 100000;
-           if (Math.ceil(amount) == 4) {addon = "lakh +";}else{addon = "lakh";}
+           if (Math.ceil(amount) == 20 &&  method == "Rent") {addon = "lakh +";}else{addon = "lakh";}
          }else{
           amount =  vals[i] / 1000;
            addon = "thousand";
@@ -108,7 +108,7 @@ $( "#slider-range-buy" ).slider({
       max: 200000000,
       values: [ 1000000, 120000000 ],
       slide: function( event, ui ) {
-        vals = calc_values([ui.values[0], ui.values[1]]);
+        vals = calc_values([ui.values[0], ui.values[1]], "Buy");
         $( "#amount" ).val(vals[0] + " - " + vals[1] );
       }
     }).draggable();
@@ -119,7 +119,7 @@ $( "#slider-range-rent" ).slider({
       max: 2000000,
       values: [ 10000, 500000 ],
       slide: function( event, ui ) {
-        vals = calc_values([ui.values[0], ui.values[1]]);
+        vals = calc_values([ui.values[0], ui.values[1]], "Rent");
         $( "#amount" ).val(vals[0] + " - " + vals[1] );
       }
     }).draggable();

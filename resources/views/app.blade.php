@@ -9,6 +9,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Pyramid</title>
+        <meta name="description" content="Pyramid Estates is a real estate division of Gorwani Builders, which has experience of developing more than 1.5 lakh square feet across Mumbai.">
         <script src="https://use.fontawesome.com/79c46acb7c.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
          <script src="{{ secure_asset('js/app.js') }}"></script>
@@ -23,6 +24,15 @@
          <script src="{{ secure_asset('js/jquery-ui-touch-.min.js') }}"></script>
          <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GMAPS_KEY') }}&libraries=places"></script>
          <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145444633-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-145444633-1');
+        </script>
     </head>
     <body>
         <div class="header">
@@ -85,9 +95,9 @@
                     </div>
                 </div>
                 <div class="social">
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/pyramidestates.in" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/pyramidestates.in" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/pyramidestates/" target="_blank"><i class="fa fa-instagram"></i></a>
                 </div>
             </div>
         </div>

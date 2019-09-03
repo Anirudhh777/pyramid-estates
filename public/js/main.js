@@ -14,11 +14,11 @@ $( document ).ready(function() {
         if($(".user_type").val() == 'Rent' || $(".user_type").val() == 'Rent Out'){
           $("#slider-range-buy").hide();
           $("#slider-range-rent").show();
-           if(window.location.pathname == '/'){$( "#amount" ).val("10 thousand - 5 lakh");}
+           if(window.location.pathname == '/'){$( "#amount" ).val("Upto 10 thousand");}
         }else{
            $("#slider-range-buy").show();
           $("#slider-range-rent").hide();
-          if(window.location.pathname == '/'){$( "#amount" ).val("10 lakh - 12 cr");}
+          if(window.location.pathname == '/'){$( "#amount" ).val("Upto 10 lakh");}
         }
       }else if(name == "res_comm_btn"){
       	$(".res_comm").val($(this).val());
@@ -85,42 +85,42 @@ $( document ).ready(function() {
   });
 
     function calc_values(vals, method){
-      calc_vals = [];
-      for(i=0;i<2;i++){
-        if(vals[i] > 10000000 && method == "Buy"){
-           amount =  vals[i] / 10000000;
+      var calc_vals;
+      // for(i=0;i<2;i++){
+        if(vals > 10000000 && method == "Buy"){
+           amount =  vals / 10000000;
            if (Math.ceil(amount) == 20) {addon = "cr +";}else{addon = "cr";}
-         }else if(vals[i] < 10000000 && vals[i] >= 100000){
-           amount =  vals[i] / 100000;
+         }else if(vals < 10000000 && vals >= 100000){
+           amount =  vals / 100000;
            if (Math.ceil(amount) == 20 &&  method == "Rent") {addon = "lakh +";}else{addon = "lakh";}
          }else{
-          amount =  vals[i] / 1000;
+          amount =  vals / 1000;
            addon = "thousand";
          }
-          calc_vals.push(Math.ceil(amount) + " " + addon);
-      }
+          calc_vals = Math.ceil(amount) + " " + addon;
+      // }
       return calc_vals;
     }
 
 $( "#slider-range-buy" ).slider({
-      range: true,
+      range: "min",
       min: 1000000,
       max: 200000000,
-      values: [ 1000000, 120000000 ],
+      values: 10000000,
       slide: function( event, ui ) {
-        vals = calc_values([ui.values[0], ui.values[1]], "Buy");
-        $( "#amount" ).val(vals[0] + " - " + vals[1] );
+        vals = calc_values(ui.value, "Buy");
+        $( "#amount" ).val( "Upto " + vals );
       }
     }).draggable();
 
 $( "#slider-range-rent" ).slider({
-      range: true,
+      range: "min",
       min: 10000,
       max: 2000000,
-      values: [ 10000, 500000 ],
+      values: 10000,
       slide: function( event, ui ) {
-        vals = calc_values([ui.values[0], ui.values[1]], "Rent");
-        $( "#amount" ).val(vals[0] + " - " + vals[1] );
+       vals = calc_values(ui.value, "Rent");
+        $( "#amount" ).val( "Upto " + vals );
       }
     }).draggable();
   
@@ -194,8 +194,6 @@ $( "#slider-range-rent" ).slider({
       },
       phone: {
           required: true,
-          minlength: 10,
-          maxlength: 10,
           number: true
         },
         bedrooms_vals: {
@@ -229,8 +227,6 @@ $( "#slider-range-rent" ).slider({
       },
       phone: {
           required: true,
-          minlength: 10,
-          maxlength: 10,
           number: true
         },
       },
@@ -260,10 +256,10 @@ $( "#slider-range-rent" ).slider({
   });
 
   $(".imgAdd").click(function(){
-      if($(".image-label").length < 7){
+      if($(".image-label").length < 11){
         $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary image-label">Select Image<input type="file" class="uploadFile img" style="width:0px;height:0px;overflow:hidden;" name="imagelinks' + $(".image-label").length +'"></label><i class="fa fa-times del"></i></div>');
           $('.imgAdd').show();
-        if($(".image-label").length == 6){ $('.imgAdd').hide(); }
+        if($(".image-label").length == 10){ $('.imgAdd').hide(); }
       }
     });
 

@@ -42,6 +42,7 @@
 								    <option value="Apartment">Apartment</option>
 								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
 								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
+								    <option value="Plot/Land">Plot/Land</option>
 								    <option value="Villa/Bungalow">Villa/Bungalow</option>
 								    <option value="Service Apartment">Service Apartment</option>
 								    <option value="Farmhouse">Farmhouse</option>
@@ -95,12 +96,14 @@
 								<input type="button" name="area_3500" value="3000-3500" class="select-btn-area">
 								<input type="button" name="area_3500+" value="3500+" class="select-btn-area">
 								<input type="hidden" name="area" value="" class="selectarea">
+								<p class="c_budget">OR</p>
+								<input type="text" name="custom_area" class="form-control custom-form" placeholder="Enter Custom Area (sq. ft)">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Budget</label>
 	          					<div id="slider-range-buy"></div>
 	          					<div id="slider-range-rent"></div>
-	          					<input type="text" id="amount" name="budget" readonly class="budget" value="10 lakh - 12 cr">
+	          					<input type="text" id="amount" name="budget" readonly class="budget" value="Upto 10 lakh">
 	          					<p class="c_budget">OR</p>
 								<input type="text" id="custom_budget" name="custom_budget" class="form-control custom-form" placeholder="Enter Budget">
 	          				</div>

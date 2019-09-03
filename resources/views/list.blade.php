@@ -43,6 +43,7 @@
 								    <option value="Apartment">Apartment</option>
 								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
 								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
+								     <option value="Plot/Land">Plot/Land</option>
 								    <option value="Villa/Bungalow">Villa/Bungalow</option>
 								    <option value="Service Apartment">Service Apartment</option>
 								    <option value="Farmhouse">Farmhouse</option>
@@ -88,15 +89,15 @@
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Area in sq.ft*</label>
-	          					<input type="button" name="area_500" value="0-500" class="select-btn-area">
+	          					<!-- <input type="button" name="area_500" value="0-500" class="select-btn-area">
 								<input type="button" name="area_1000" value="500-1000" class="select-btn-area">
 								<input type="button" name="area_1500" value="1000-1500" class="select-btn-area">
 								<input type="button" name="area_2000" value="1500-2000" class="select-btn-area">
 								<input type="button" name="area_2500" value="2000-2500" class="select-btn-area">
 								<input type="button" name="area_3000" value="2500-3000" class="select-btn-area">
 								<input type="button" name="area_3500" value="3000-3500" class="select-btn-area">
-								<input type="button" name="area_3500+" value="3500+" class="select-btn-area">
-								<input type="hidden" name="area" value="" class="selectarea">
+								<input type="button" name="area_3500+" value="3500+" class="select-btn-area"> -->
+								<input type="text" name="area" value="" class="selectarea form-control custom-form">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Asking Price</label>

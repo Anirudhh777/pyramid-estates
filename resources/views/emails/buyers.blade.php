@@ -96,6 +96,7 @@
 			Bedrooms : {{ $bedrooms	}} <br>
 			Locations : {{ $locations	}} <br>
 			Area : {{ $area	}} <br>
+			Custom Area : {{ $custom_area	}} <br>
 			Budget : {{ $budget	}} <br>
 			Custom Budget : {{ $custom_budget	}} <br>
 			Additional Comments : {{ $additional	}} <br>

@@ -28,7 +28,7 @@ class FormsController extends Controller
         try{
             $email = 'leads@pyramidestates.in';
             $insert = $this->submit_data("buyers", $info);
-            Mail::send('emails.buyers', ['email' => $email, 'Form' => "Buyer Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional], 
+            Mail::send('emails.buyers', ['email' => $email, 'Form' => "Buyer Form", 'name' => $info->name, 'phone' => $info->phone, 'user_email' => $info->email, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'kind_prop' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'custom_area' => $info->custom_area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional], 
                 function ($message) use ($email)
             {
                 $message->from('pyramid.estates.aws@gmail.com', 'Pyramid Estates');
@@ -65,13 +65,13 @@ class FormsController extends Controller
         if($info->hasFile('imagelinks')){
             $image_links = $this->file_uploads($info);
             if($table == "buyers"){
-              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget, 'additional' => $info->additional, 'images' => implode(" , ",$image_links)]);
+              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'custom_area' => $info->custom_area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget, 'additional' => $info->additional, 'images' => implode(" , ",$image_links)]);
             }else{
               DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional, 'images' => implode(" , ",$image_links)]);
             }
         }else{
             if($table == "buyers"){
-              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional]);
+              DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'custom_area' => $info->custom_area,'budget' => $info->budget, 'custom_budget' => $info->custom_budget,'additional' => $info->additional]);
             }else{
               DB::table($table)->insert(['email' => $info->email, 'name' => $info->name, 'phone' => $info->phone, 'user_type' => $info->user_type, 'property_type' => $info->res_comm, 'property_sub_type' => $info->prop_type, 'bedrooms' => $info->bedrooms_vals, 'locations' => $info->location, 'area' => $info->area, 'budget' => $info->budget, 'additional' => $info->additional]);
             }
@@ -148,6 +148,38 @@ class FormsController extends Controller
        }
        if ($request->hasFile('imagelinks5')) {
            $file = $request->file('imagelinks5');
+           $name = time() . $file->getClientOriginalName();
+           $filePath = 'images/' . $name;
+           Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+           $url = env('AWS_URL').$filePath;
+           array_push($images, $url);
+       }
+       if ($request->hasFile('imagelinks6')) {
+           $file = $request->file('imagelinks6');
+           $name = time() . $file->getClientOriginalName();
+           $filePath = 'images/' . $name;
+           Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+           $url = env('AWS_URL').$filePath;
+           array_push($images, $url);
+       }
+       if ($request->hasFile('imagelinks7')) {
+           $file = $request->file('imagelinks7');
+           $name = time() . $file->getClientOriginalName();
+           $filePath = 'images/' . $name;
+           Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+           $url = env('AWS_URL').$filePath;
+           array_push($images, $url);
+       }
+       if ($request->hasFile('imagelinks8')) {
+           $file = $request->file('imagelinks8');
+           $name = time() . $file->getClientOriginalName();
+           $filePath = 'images/' . $name;
+           Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+           $url = env('AWS_URL').$filePath;
+           array_push($images, $url);
+       }
+       if ($request->hasFile('imagelinks9')) {
+           $file = $request->file('imagelinks9');
            $name = time() . $file->getClientOriginalName();
            $filePath = 'images/' . $name;
            Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');

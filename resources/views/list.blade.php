@@ -40,7 +40,7 @@
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<input type="hidden" name="prop_type" value="" class="prop_type_val">
 	          					<select class="selectpicker form-control res-opts prop_type_opts" title="Select Property Type">
-								    <option value="Apartment">Apartment</option>
+								    <option value="Flat Apartment">Flat/Apartment</option>
 								    <option value="Builder[Under Construction]">Builder[Under Construction]</option>
 								    <option value="Builder[Ready/OC]">Builder[Ready/OC]</option>
 								     <option value="Plot/Land">Plot/Land</option>
@@ -77,15 +77,16 @@
 	          		<div class="additonal-info">
 	          			<div class="row">
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-	          					<label>Location*</label>
+	          					<label>Location (choose from drop-down)*</label>
 	       
-	          					<input type="hidden" name="location" value="" class="glocval">
+	          					
 	          					<!-- <input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
 	          					<div class="loc-list">
 	          						
 
 	          					</div> -->
 	          					<input type="text" class="gloc form-control custom-form" id="pac-input" placeholder="Select Location">
+	          					<input type="hidden" name="location" value="" class="glocval">
 	          				</div>
 	          				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 	          					<label>Area in sq.ft*</label>

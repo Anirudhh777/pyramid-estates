@@ -200,6 +200,9 @@ $( "#slider-range-rent" ).slider({
             required: function(element){
               return $('.res_comm').val() == ('residential');
           }
+        },
+        location: {
+         required: true
         }
       },
       messages:
@@ -211,7 +214,10 @@ $( "#slider-range-rent" ).slider({
                  required: "Please enter your number",
                 remote: "This number has already been registered",
                 number: "Only numbers allowed"
-              }     
+              },
+              location: {
+                 required: "Please select location"
+              },       
           },
       submitHandler: function(form) {
          document.getElementById("buyform").submit();
@@ -229,7 +235,6 @@ $( "#slider-range-rent" ).slider({
           required: true,
           number: true
         },
-      },
       bedrooms_vals: {
             required: function(element){
               return $('.res_comm').val() == ('residential');
@@ -238,6 +243,10 @@ $( "#slider-range-rent" ).slider({
       budget: {
         required: true
       },
+      location: {
+         required: true
+      },
+    },
       messages:
         {
               name: {
@@ -247,7 +256,10 @@ $( "#slider-range-rent" ).slider({
                  required: "Please enter your number",
                 remote: "This number has already been registered",
                 number: "Only numbers allowed"
-              }     
+              },
+              location: {
+                 required: "Please select location"
+              },  
           },
       submitHandler: function(form) {
         document.getElementById("sellform").submit();
